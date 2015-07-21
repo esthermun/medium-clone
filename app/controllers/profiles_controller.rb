@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  
   def new
   	@profile = Profile.new
   end
@@ -14,15 +15,15 @@ class ProfilesController < ApplicationController
 
   def show
   	#@id = @profile.user_id
-  	@profile = Profile.find(params[:user_id])
+  	#@profile = Profile.find(params[:user_id])
   end
 
   def update
   end
 
-  # def show_all
-  # 	@profiles = Profile.all
-  # end
+  def index
+  	@profiles = Profile.all
+  end
 
   private
   def profile_params
