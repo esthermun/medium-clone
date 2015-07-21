@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+
+  get 'posts/create'
+
+  get 'posts/show'
+
   get '/profile/new' => 'profiles#new'
 
   post 'profiles/create' => 'profiles#create'

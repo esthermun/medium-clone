@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721182751) do
+ActiveRecord::Schema.define(version: 20150721215219) do
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "slug"
+    t.string   "title"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "content"
+    t.integer  "state"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
