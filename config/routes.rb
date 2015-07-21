@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'profiles/new'
+
+  get 'profiles/create'
+
+  get 'profiles/show'
+
   root to: 'home#index'
 
   get '/secret' => 'home#secret'
