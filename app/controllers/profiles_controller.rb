@@ -13,11 +13,16 @@ class ProfilesController < ApplicationController
   end
 
   def show
-  	@profile = Profile.find(params[:id])
+  	#@id = @profile.user_id
+  	@profile = Profile.find(params[:user_id])
   end
-  def show_all
-  	@profiles = Profile.all
+
+  def update
   end
+
+  # def show_all
+  # 	@profiles = Profile.all
+  # end
 
   private
   def profile_params

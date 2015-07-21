@@ -1,2 +1,29 @@
-<h1>Profiles#show</h1>
+
+<h1>Profile</h1>
 <p>Find me in app/views/profiles/show.html.erb</p>
+
+<div class="row">
+	<div class="col-xs-12 col-md-3">
+		<a href="#" class="thumbnail">
+			<%= image_tag @profile.avatar.url(:thumb), :class => "img-responsive img-rounded" %>
+		</a>
+	</div>
+
+	<div class="col-xs-12 col-9">
+		<table class="table table-responsive">
+			<tr>
+				<td>Name: </td>
+				<td><%= current_user.name %></td>
+			</tr>
+			<tr>
+				<td>Username:</td>
+				<td><%= current_user.username %></td>
+			</tr>
+			<tr>
+				<td>About Me: </td>
+				<td><%= current_user.description %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
