@@ -1,2 +1,19 @@
-<h1>Profiles#new</h1>
+<h1>Creating a New Profile</h1>
 <p>Find me in app/views/profiles/new.html.erb</p>
+
+<%= form_for @profile, url: {action: "create"} do |f| %>
+	<div class="form-group">
+		<%= label_tag :name, "Your Name: " %>
+		<%= f.text_field(:name, :class =>"form-control") %>
+	</div>
+	<div class="form-group">
+		<%= label_tag :username, "Username: " %>
+		<%= f.text_field(:username, :class => "form-control") %>
+	</div>
+	<div class="form-group">
+		<%= label_tag :description, "About: " %>
+		<%= f.text_area(:description, :class => "form-control", :placeholder => "Tell us about yourself...") %>
+	</div>
+	<%= f.submit :class => "btn btn-info" %>
+
+<% end %>

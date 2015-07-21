@@ -6,9 +6,9 @@ class ProfilesController < ApplicationController
   def create
   	@profile = Profile.new(profile_params)
   	logger.debug(params)
-  	@profile.user_id = current_user.user_id
+  	@profile.user_id = current_user.id
   	@profile.save
-  	#redirect_to (myprofilepage)
+  	redirect_to '/'
 
   end
 
