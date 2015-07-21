@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'profiles/new'
+  get '/profile/new' => 'profiles#new'
 
   get 'profiles/create'
 
