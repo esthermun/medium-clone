@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get '/profile/new' => 'profiles#new'
 
-  get 'profiles/create'
+  post 'profiles/create' => 'profiles#create'
 
   get 'profiles/show'
+
+  
 
   root to: 'home#index'
 
