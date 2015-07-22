@@ -5,7 +5,7 @@
 <div class="row">
 	<div class="col-xs-12 col-md-3">
 		<a href="#" class="thumbnail">
-			<%= image_tag current_user.profile.avatar.url(:thumb) %>
+			<%= @profile.avatar.url(:medium) %>
 			<!-- <image src="http://placehold.it/150x150"> -->
 		</a>
 	</div>
@@ -14,15 +14,15 @@
 		<table class="table table-responsive">
 			<tr>
 				<td>Name: </td>
-				<td><%= current_user.profile.name %></td>
+				<td><%= @profile.name %></td>
 			</tr>
 			<tr>
 				<td>Username:</td>
-				<td><%= current_user.profile.username %></td>
+				<td><%= @profile.username %></td>
 			</tr>
 			<tr>
 				<td>About Me: </td>
-				<td><%= current_user.profile.description %></td>
+				<td><%= @profile.description %></td>
 			</tr>
 			<tr>
 				<td><%# link_to "Edit", edit_profile_path %></td>
@@ -32,4 +32,4 @@
 		</table>
 	</div>
 </div>
-
+<%= @profile.inspect %>

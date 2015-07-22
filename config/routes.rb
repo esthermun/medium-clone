@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
   get 'posts/new'
 
   get 'posts/create'
@@ -9,15 +11,11 @@ Rails.application.routes.draw do
 
   post 'profiles/create' => 'profiles#create'
 
-  get 'profiles/show' => 'profiles#show'
-
-  get 'profiles/index' =>'profiles#index'
-
-  
-
-  root to: 'home#index'
+  get 'profiles/index' =>'profiles#index'  
 
   get '/secret' => 'home#secret'
+
+  get 'profile/:id' => 'profiles#show', as: :profile
 
   devise_for :users
   
