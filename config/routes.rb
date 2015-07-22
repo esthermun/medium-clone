@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post 'profiles/create' => 'profiles#create'
 
-  get 'profiles/show'
+  get 'profiles/show' => 'profiles#show'
 
   get 'profiles/index' =>'profiles#index'
 

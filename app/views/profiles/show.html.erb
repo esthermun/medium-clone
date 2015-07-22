@@ -5,8 +5,8 @@
 <div class="row">
 	<div class="col-xs-12 col-md-3">
 		<a href="#" class="thumbnail">
-			<%# image_tag @profile.avatar.url %>
-			<image src="http://placehold.it/150x150">
+			<%= image_tag current_user.profile.avatar.url(:thumb) %>
+			<!-- <image src="http://placehold.it/150x150"> -->
 		</a>
 	</div>
 
@@ -14,19 +14,19 @@
 		<table class="table table-responsive">
 			<tr>
 				<td>Name: </td>
-				<td><%# @profile.name %></td>
+				<td><%= current_user.profile.name %></td>
 			</tr>
 			<tr>
 				<td>Username:</td>
-				<td><%# @profile.username %></td>
+				<td><%= current_user.profile.username %></td>
 			</tr>
 			<tr>
 				<td>About Me: </td>
-				<td><%# @profile.description %></td>
+				<td><%= current_user.profile.description %></td>
 			</tr>
 			<tr>
 				<td><%# link_to "Edit", edit_profile_path %></td>
-				<td><%# link_to "Back to Main Page", root_path%></td>
+				<td><%= link_to "Back to Main Page", root_path%></td>
 				
 			</tr>
 		</table>
