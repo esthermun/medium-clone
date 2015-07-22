@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   	@profile = Profile.new(profile_params)
   	@profile.user_id = current_user.id
   	if @profile.save
-  		redirect_to '/'
+  		redirect_to @profile
   	else 
   		render "new"
   	end
@@ -26,9 +26,10 @@ class ProfilesController < ApplicationController
   def update
   	@profile = Profile.find(params[:id])
   	if @profile.update(profile_params)
-  		
+  		#need a success alert
   		redirect_to @profile
   	else
+      #need a failed attempt
   		render "edit"
   	end
   end
@@ -39,6 +40,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-  	params.require(:profile).permit(:username, :name, :avatar)
+  	params.require(:profile).permit(:username, :name, :description, :avatar)
   end
 end
