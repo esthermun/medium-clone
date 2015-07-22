@@ -41,7 +41,7 @@
 										<li><%= link_to "Create Profile", new_profile_path %></li>
 									<% end %>
 
-									<li><a href="#">Manage my posts</a></li>
+									<li><a href="#"><%# link_to "Manage my posts", post_path(current_user.posts) %> My Posts</a></li>
 									<li><a href="#">My Page</a></li>
 									<li><%= link_to "log out", destroy_user_session_path, :method => :delete %></li>
 								</ul>

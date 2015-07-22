@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
   		#need a success alert
   		redirect_to @profile
   	else
-      #need a failed attempt
+      #need a failed attempt message
   		render "edit"
   	end
   end
