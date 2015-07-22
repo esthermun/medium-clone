@@ -6,11 +6,12 @@ class ProfilesController < ApplicationController
 
   def create
   	@profile = Profile.new(profile_params)
-  	logger.debug(params)
   	@profile.user_id = current_user.id
-  	@profile.save
-  	redirect_to '/'
-
+  	if @profile.save
+  		redirect_to '/'
+  	else 
+  		render "new"
+  	end
   end
 
   def show
@@ -19,12 +20,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+  	@profile = Profile.find(params[:id])
   end
 
   def update
   	@profile = Profile.find(params[:id])
   	if @profile.update(profile_params)
-  		redirect_to '@profile'
+  		
+  		redirect_to @profile
   	else
   		render "edit"
   	end
