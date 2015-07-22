@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/show'
-
   resources :profiles
+
+  resources :posts
+
+  devise_for :users
+
+   # get 'posts/new'
+
+  # get 'posts/create'
+
+  # get 'posts/show'
 
   # get '/profile/new' => 'profiles#new'
 
@@ -19,7 +23,6 @@ Rails.application.routes.draw do
 
   # get 'profile/:id' => 'profiles#show', as: :profile
 
-  devise_for :users
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

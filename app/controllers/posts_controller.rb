@@ -5,12 +5,26 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.new()
+  	@post = Post.new(post_params)
   	@post.user_id = current_user.id
+    if @post.save
+      redirect_to '/'
+    else
+      render "new"
+    end
   end
 
   def show
+    @post = Post.find(params[:id])
   end
+
+  # def edit
+  #   @post = Post.find(params[:id])
+  # end
+
+  # def update
+  #   @post = Post.find(params[:id])
+  # end
 
   def index
   	@posts = Post.all
@@ -20,4 +34,5 @@ class PostsController < ApplicationController
   def post_params
   	params.require(:post).permit(:title, :content)
   end
+
 end

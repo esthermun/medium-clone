@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-  	# @id = @profile.id
   	@profile = Profile.find(params[:id])
   end
 
