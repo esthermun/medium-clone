@@ -14,21 +14,21 @@ class ProfilesController < ApplicationController
   end
 
   def show
-  	#@id = @profile.user_id
+  	# @id = @profile.id
   	@profile = Profile.find(params[:id])
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  # 	@profile = Profile.find(params[:id])
-  # 	if @profile.update(profile_params)
-  # 		redirect_to '@profile'
-  # 	else
-  # 		render "edit"
-  # 	end
-  # end
+  def update
+  	@profile = Profile.find(params[:id])
+  	if @profile.update(profile_params)
+  		redirect_to '@profile'
+  	else
+  		render "edit"
+  	end
+  end
 
   def index
   	@profiles = Profile.all

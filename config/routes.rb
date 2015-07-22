@@ -7,15 +7,17 @@ Rails.application.routes.draw do
 
   get 'posts/show'
 
-  get '/profile/new' => 'profiles#new'
+  resources :profiles
 
-  post 'profiles/create' => 'profiles#create'
+  # get '/profile/new' => 'profiles#new'
 
-  get 'profiles/index' =>'profiles#index'  
+  # post 'profiles/create' => 'profiles#create'
 
-  get '/secret' => 'home#secret'
+  # get 'profiles/index' =>'profiles#index'  
 
-  get 'profile/:id' => 'profiles#show', as: :profile
+  # get '/secret' => 'home#secret'
+
+  # get 'profile/:id' => 'profiles#show', as: :profile
 
   devise_for :users
   
