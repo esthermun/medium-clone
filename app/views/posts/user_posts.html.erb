@@ -1,4 +1,4 @@
-<h1>Show my post</h1>
+<h1>Manage my posts</h1>
 
 <%= @posts.inspect %>
 
@@ -25,24 +25,29 @@
 			
 				<div class="userBtns">
 					<% if current_user %>
-						<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>
+						<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
 					<% end %>
+					<%= link_to "Show", post_path(post.id), :class => "btn btn-info" %>
 				</div>
 
 			</article>
 		<% end %> 
+	</div>
+</div>
 
-		<div class="linkBtns">
+<div class="linkBtns">
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
 			<%# if current_user %>
 			<%# link_to "Edit", edit_post_path, :class => "btn btn-info" %>
 			
-			<%# link_to "Manage My Posts", show_all_path, :class => "btn btn-info" %>
+			<%# link_to "Manage My Posts", my_posts_path, :class => "btn btn-info" %>
 			<%# else %>
 			<%# link_to "All Posts", index_path, :class => "btn btn-info" %>
 			<%= link_to "Home", root_path, :class => "btn btn-info" %>
 
 			<%# end %>
-		</div>	
+		</div>
 	</div>
 </div>
-
+	

@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def show
     #@user = User.find_by_id(params[:user_id])
     #@posts = @user.posts
-    @posts = current_user.posts
+    @post = Post.find(params[:id])
   end
 
 # edit my post
@@ -32,7 +32,8 @@ class PostsController < ApplicationController
   end
 # update my post
   def update
-    @post = Post.find(params[:id])
+    @posts = current_user.posts
+    @post = @posts.find(params[:id])
     if @profile.update(profile_params)
       #need a success alert
       redirect_to @post

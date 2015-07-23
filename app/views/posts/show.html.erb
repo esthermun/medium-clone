@@ -1,0 +1,41 @@
+<%= @post.inspect %>
+<%= @profile.inspect %>
+
+<h1>Full article page</h1>
+
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<article class="post">
+			<% if @post.image.exists? %>
+				<%= image_tag @post.image.url %>
+			<% end %>
+			
+			<h2>
+				<%= @post.title %>
+			</h2>
+			
+			<p>	
+				<%= @post.updated_at%>
+			</p>
+
+			<p class="lead">
+				By: <%# image_tag @profile.avatar.url(:thumb) %>
+				User <%= @post.user_id %>
+			</p>
+
+			<div class="content">
+				<%= @post.content %> 
+			</div>
+		
+			<div class="userBtns">
+				<% if current_user %>
+					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>
+				<% end %>
+				<%= link_to "Back", my_posts_path, :class => "btn btn-info" %>
+			</div>
+		</article>
+
+	</div>
+
+</div>
+
