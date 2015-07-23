@@ -17,21 +17,22 @@ class PostsController < ApplicationController
 # to show all my posts 
   def user_posts
     @posts = current_user.posts
+    # get_profile
   end
 
 # show one post
   def show
-    @post = Post.find(params[:id])
+    set_post
+    get_profile
   end
 
 # edit my post
   def edit
-    @post = Post.find(params[:id])
+    set_post
   end
 # update my post
   def update
-    #@posts = current_user.posts
-    @post = Post.find(params[:id])
+    set_post
     if @post.update(post_params)
       #need a success alert
       redirect_to @post
@@ -47,6 +48,15 @@ class PostsController < ApplicationController
   end
 
   private
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def get_profile
+    @id = @post.user_id
+    @profile = Profile.find_by_user_id(@id)
+  end
+
   def post_params
   	params.require(:post).permit(:title, :content, :image)
   end

@@ -1,7 +1,6 @@
 <h1>Manage my posts</h1>
 
-<%= @posts.inspect %>
-
+<%# @posts.inspect %>
 
  <div class="row">
 	<div class="col-xs-12 col-md-12">
@@ -16,7 +15,8 @@
 				</p>
 
 				<p class="lead">
-					By: User <%= post.user_id %>
+					By: <%= image_tag current_user.profile.avatar.url(:thumb) %> 
+						<%= current_user.profile.username %>
 				</p>
 
 				<div class="content">

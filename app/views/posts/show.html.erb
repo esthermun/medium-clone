@@ -19,8 +19,8 @@
 			</p>
 
 			<p class="lead">
-				By: <%# image_tag @profile.avatar.url(:thumb) %>
-				User <%= @post.user_id %>
+				By: <%= image_tag @profile.avatar.url(:thumb) %>
+						<%= @profile.username %>
 			</p>
 
 			<div class="content">
