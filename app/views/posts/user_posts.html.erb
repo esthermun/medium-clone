@@ -1,11 +1,11 @@
 <h1>Show my post</h1>
 
-<%= @post.inspect %>
+<%= @posts.inspect %>
 
 
-<!-- <div class="row">
+ <div class="row">
 	<div class="col-xs-12 col-md-12">
-		<%# @posts.each do |post| %>
+		<% @posts.each do |post| %>
 			<article>
 				<h2>
 					<%= post.title %>
@@ -16,15 +16,21 @@
 				</p>
 
 				<p class="lead">
-					By: <%# @post.username %>
+					By: User <%= post.user_id %>
 				</p>
 
 				<div class="content">
 					<%= post.content %> 
 				</div>
+			
+				<div class="userBtns">
+					<% if current_user %>
+						<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>
+					<% end %>
+				</div>
 
 			</article>
-		<%# end %> 
+		<% end %> 
 
 		<div class="linkBtns">
 			<%# if current_user %>
@@ -33,10 +39,10 @@
 			<%# link_to "Manage My Posts", show_all_path, :class => "btn btn-info" %>
 			<%# else %>
 			<%# link_to "All Posts", index_path, :class => "btn btn-info" %>
-			<%# link_to "Home", root_path, :class => "btn btn-info" %>
+			<%= link_to "Home", root_path, :class => "btn btn-info" %>
 
 			<%# end %>
 		</div>	
 	</div>
-</div>-->
+</div>
 

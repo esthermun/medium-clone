@@ -14,15 +14,23 @@ class PostsController < ApplicationController
     end
   end
 
-# to show 
-  def show
-    @post = Post.find(params[:id])
+# to show all my posts
+  def user_posts
+    @posts = current_user.posts
   end
 
+# show one post
+  def show
+    #@user = User.find_by_id(params[:user_id])
+    #@posts = @user.posts
+    @posts = current_user.posts
+  end
+
+# edit my post
   def edit
     @post = Post.find(params[:id])
   end
-
+# update my post
   def update
     @post = Post.find(params[:id])
     if @profile.update(profile_params)
@@ -34,6 +42,7 @@ class PostsController < ApplicationController
     end
   end
 
+#show all posts from all users
   def index
   	@posts = Post.all
   end
