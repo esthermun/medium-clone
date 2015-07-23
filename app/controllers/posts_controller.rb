@@ -32,9 +32,9 @@ class PostsController < ApplicationController
   end
 # update my post
   def update
-    @posts = current_user.posts
-    @post = @posts.find(params[:id])
-    if @profile.update(profile_params)
+    #@posts = current_user.posts
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
       #need a success alert
       redirect_to @post
     else

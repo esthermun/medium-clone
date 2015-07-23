@@ -1,21 +1,21 @@
 <%= @post.inspect %>
-<%= @profile.inspect %>
+
 
 <h1>Full article page</h1>
 
 <div class="row">
 	<div class="col-xs-12 col-md-12">
 		<article class="post">
-			<% if @post.image.exists? %>
+			<%#if @post.image.exists? %>
 				<%= image_tag @post.image.url %>
-			<% end %>
-			
+			<%# end %>
+
 			<h2>
 				<%= @post.title %>
 			</h2>
 			
 			<p>	
-				<%= @post.updated_at%>
+				<%= time_ago_in_words(@post.created_at)%> ago
 			</p>
 
 			<p class="lead">
@@ -28,7 +28,7 @@
 			</div>
 		
 			<div class="userBtns">
-				<% if current_user %>
+				<% if current_user.id === @post.user.id %>
 					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>
 				<% end %>
 				<%= link_to "Back", my_posts_path, :class => "btn btn-info" %>

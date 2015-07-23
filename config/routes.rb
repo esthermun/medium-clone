@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :posts
-
+  
   get 'my_posts' => 'posts#user_posts', as: :my_posts
 
   devise_for :users
