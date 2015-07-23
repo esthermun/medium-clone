@@ -1,5 +1,7 @@
 <%= form_for @profile, :html => { :multipart => true } do |f| %>
 	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	
 	<div class="form-group">
 		<%= label_tag :name, "Your Name: " %>
 		<%= f.text_field(:name, :class =>"form-control") %>

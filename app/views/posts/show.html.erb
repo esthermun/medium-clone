@@ -6,16 +6,16 @@
 <div class="row">
 	<div class="col-xs-12 col-md-12">
 		<article class="post">
-			<%#if @post.image.exists? %>
+			<% if @post.image.exists? %>
 				<%= image_tag @post.image.url %>
-			<%# end %>
+			<% end %>
 
 			<h2>
 				<%= @post.title %>
 			</h2>
 			
 			<p>	
-				<%= time_ago_in_words(@post.created_at)%> ago
+				Posted <%= time_ago_in_words(@post.created_at)%> ago
 			</p>
 
 			<p class="lead">

@@ -8,8 +8,10 @@ class ProfilesController < ApplicationController
   	@profile = Profile.new(profile_params)
   	@profile.user_id = current_user.id
   	if @profile.save
+      flash[:notice] = "Profile successfully created."
   		redirect_to @profile
   	else 
+      flash[:alert] = "Error"
   		render "new"
   	end
   end
@@ -25,10 +27,10 @@ class ProfilesController < ApplicationController
   def update
   	@profile = Profile.find(params[:id])
   	if @profile.update(profile_params)
-  		#need a success alert
+  		flash[:notice] = "Profile successfully updated."
   		redirect_to @profile
   	else
-      #need a failed attempt message
+      flash[:alert] = "Profile not updated"
   		render "edit"
   	end
   end

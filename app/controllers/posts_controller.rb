@@ -14,15 +14,13 @@ class PostsController < ApplicationController
     end
   end
 
-# to show all my posts
+# to show all my posts 
   def user_posts
     @posts = current_user.posts
   end
 
 # show one post
   def show
-    #@user = User.find_by_id(params[:user_id])
-    #@posts = @user.posts
     @post = Post.find(params[:id])
   end
 
@@ -50,7 +48,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-  	params.require(:post).permit(:title, :content)
+  	params.require(:post).permit(:title, :content, :image)
   end
 
 end
