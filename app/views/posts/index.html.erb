@@ -1,9 +1,9 @@
 <%= link_to "Home", root_path, :class => "btn btn-info" %>
 
-<h1>Show all posts</h1>
-
  <div class="row">
 	<div class="col-xs-12 col-md-12">
+		<h1>Show all posts</h1>
+		
 		<% @posts.each do |post| %>
 
 			<article class="post">
@@ -35,14 +35,14 @@
 					<%= truncate(post.content, :length => 80) %> 
 				</div>
 			
-				<div class="userBtns">
-					<% if current_user.id === post.user.id %>
+				<div class="userBtn">
+					<% if user_signed_in? && current_user.id === post.user_id %>
 						<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
 					<% end %>
 				</div>
 
 			</article>
-	
+			<hr>
 		<% end %> 
 
 	</div>

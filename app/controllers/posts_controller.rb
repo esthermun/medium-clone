@@ -16,8 +16,8 @@ class PostsController < ApplicationController
 
 # to show all my posts 
   def user_posts
-    @posts = current_user.posts
-    @profile = current_user.profile 
+    @posts = profile.posts.all
+    
   end
 
 # show one post

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Medium-clone</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track', 'bootstrap.min' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<%= render "shared/navbar" %>
+			
+		<div class="container alerts">
+			<div class="notice"> <%= notice %> </div>
+			<div class="alert">	<%= alert %> </div>
+		</div>
+		
+
+
+		<div class="container mainContainer">
+			<%= yield %>
+		</div>
+		
+		<%= render "shared/footer" %>
+
+	</body>
+</html>

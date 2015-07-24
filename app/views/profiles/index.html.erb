@@ -1,28 +1,25 @@
-
 <%= link_to "Home", root_path %>
 
-
-<h1>All Users</h1>
-
-<% @profiles.each do |profile| %>
-
-	<div class="media list-group">
-		<a href="#" class="list-group-item">
-			<div class="media-left">
-				<%= image_tag profile.avatar.url(:thumb), :class => "img-circle" %>
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<h1>All Users</h1>
+		<% @profiles.each do |profile| %>
+			
+			<div class="media list-group">
+				<a href="#" class="list-group-item">
+					<div class="media-left">
+						<%= image_tag profile.avatar.url(:thumb) %>
+					</div>
+					
+					<div class="media-body">
+						<h4 class="media-heading">
+							<%= profile.name %> <span>aka <%= profile.username %></span>
+						</h4>
+						<p>Member since <%= time_ago_in_words(profile.created_at) %> </p>
+						<p><%= truncate(profile.description, :length => 50) %></p>
+					</div>
+				</a>
 			</div>
-			<div class="media-body">
-				<h4 class="media-heading">
-					<%= profile.name %> <span>aka <%= profile.username %></span>
-				</h4>
-				<p>Member since <%= time_ago_in_words(profile.created_at) %> </p>
-				<p><%= truncate(profile.description, :length => 50) %></p>
-			</div>
-		</a>
+		<% end %>
 	</div>
-
-<% end %>
-
-
-
-
+</div>

@@ -14,7 +14,7 @@
 		<p>
 			Posted by: 
 			<span class="avatar-thumb">
-				<%= image_tag @profile.avatar.url(:thumb), :class => "avatar-thumb" %> 
+				<%= image_tag @profile.avatar.url(:thumb) %> 
 			</span>  
 			<span class="username"><%= @profile.username %></span>   
 			<span class="postDate"> <%= time_ago_in_words(post.created_at)%> ago</span>
@@ -25,7 +25,7 @@
 		</div>
 	
 		<div class="userBtns">
-			<% if current_user.id === post.user.id %>
+			<% if user_signed_in? && current_user.id === post.user.id %>
 				<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
 			<% end %>
 			
