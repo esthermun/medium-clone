@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+#fake ids
+gem 'faker'
+gem 'populator'
+
 #attachment
 gem 'paperclip', '~>4.3'
 #css
