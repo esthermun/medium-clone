@@ -1,12 +1,11 @@
 <%# @post.inspect %>
-<%= link_to "Back", my_posts_path, :class => "btn btn-info" %>
+<%# link_to "Back", my_posts_path, :class => "btn btn-info" %>
 
 <div class="row">
 	<div class="col-xs-12 col-md-12">
-		<h1>Full article page</h1>
 		<article class="post">
 			<% if @post.image.exists? %>
-				<%= image_tag @post.image.url %>
+				<%= image_tag @post.image.url,:class => "img-responsive" %>
 			<% end %>
 
 			<h2>
@@ -17,18 +16,22 @@
 				Posted <%= time_ago_in_words(@post.created_at)%> ago
 			</p>
 
-			<p class="lead">
-				By: <%= image_tag @profile.avatar.url(:thumb) %>
-						<%= @profile.username %>
+			<p>
+				Posted by: 
+				<span class="avatar-thumb">
+					<%= image_tag @profile.avatar.url(:thumb) %> 
+				</span>  
+				<span class="username"><%= @profile.username %></span>   
+				<span class="postDate"> <%= time_ago_in_words(@post.created_at)%> ago</span>
 			</p>
 
 			<div class="content">
 				<%= @post.content %> 
 			</div>
 		
-			<div class="userBtns">
+			<div class="userBtn">
 				<% if user_signed_in? && current_user.id === @post.user.id %>
-					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>
+					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>	
 				<% end %>
 				
 			</div>

@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
   #need to show only last 10 posts
-  	redirect_to posts_path
+  	# redirect_to posts_path
   end
 
   def secret

@@ -29,17 +29,24 @@ class PostsController < ApplicationController
 # edit my post
   def edit
     set_post
+    if current_user.id != @post.user_id
+      redirect_to 'public/404.html'
+    end
   end
 # update my post
   def update
     set_post
-    if @post.update(post_params)
-      #need a success alert
-      redirect_to @post
+    if current_user.id != @post.user_id
+      redirect_to 'public/422.html'
     else
-      #need a failed attempt message
-      render "edit"
+      if @post.update(post_params)
+      message = "Successful"
+      else
+        flash[:error] = "Error!"
+        render "edit"
+      end
     end
+    
   end
 
 #show all posts from all users
@@ -50,6 +57,12 @@ class PostsController < ApplicationController
   private
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_protected
+    if current_user.id != @post.user_id
+      redirect_to 'public/422.html'
+    end
   end
 
   def get_profile

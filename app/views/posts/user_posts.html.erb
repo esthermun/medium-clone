@@ -1,6 +1,3 @@
-<%= link_to "Home", root_path, :class => "btn btn-info" %>
-
-
 <h1>Manage My Posts</h1>
 
 <%# @posts.inspect %>
@@ -24,7 +21,7 @@
 			<%= truncate(post.content, :length => 80) %> 
 		</div>
 	
-		<div class="userBtns">
+		<div class="userBtn">
 			<% if user_signed_in? && current_user.id === post.user.id %>
 				<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
 			<% end %>
@@ -36,19 +33,5 @@
 <% end %> 
 
 
-<div class="linkBtns">
-	<div class="row">
-		<div class="col-xs-12 col-md-12">
-			<%# if current_user %>
-			<%# link_to "Edit", edit_post_path, :class => "btn btn-info" %>
-			
-			<%# link_to "Manage My Posts", my_posts_path, :class => "btn btn-info" %>
-			<%# else %>
-			<%# link_to "All Posts", index_path, :class => "btn btn-info" %>
-			
 
-			<%# end %>
-		</div>
-	</div>
-</div>
 	

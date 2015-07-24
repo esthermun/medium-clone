@@ -19,8 +19,17 @@
 		</div>
 		
 
-
 		<div class="container mainContainer">
+			<!-- showing buttons on condition -->
+			<div class="btns">
+
+				<%# link_to_if(!current_page?(root_path), "Home", root_path), :class => "btn btn-info" %>
+				<% if !current_page?(root_path) %>
+					<%=link_to "Home", root_path, :class => "btn btn-info" %>
+				<% end %>
+			</div>
+
+
 			<%= yield %>
 		</div>
 		
