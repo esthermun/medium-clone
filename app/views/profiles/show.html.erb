@@ -29,14 +29,21 @@
 			</div>
 		</div>
 
-		<div class="pull-right userBtn">
-			<% if user_signed_in? && current_user.id === @profile.user_id %>
+		<div class="userBtn">
+			<% if user_signed_in? && current_user.id === @profile.user.id %>
 				<%= link_to "Edit", edit_profile_path, :class => "btn btn-info" %>
 			<% end %>
 		</div>
 	</div>
 </div>
 
-<%= render "posts/user_posts" %>
+<hr>
+
+
+<% if user_signed_in? && current_user.id === @profile.user_id %>
+	<%= render "posts/user_view" %>
+<% else %>
+	<%= render "posts/public_view" %>
+<% end %>
 
 

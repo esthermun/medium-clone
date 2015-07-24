@@ -25,6 +25,10 @@ class PostsController < ApplicationController
     get_profile
   end
 
+  def index
+    @posts = Post.all
+  end
+
 # edit my post
   def edit
     set_post
@@ -49,20 +53,14 @@ class PostsController < ApplicationController
     
   end
 
-#show all posts from all users
-  def index
-  	@posts = Post.all
-  end
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to '/'
+  end  
 
   private
   def set_post
     @post = Post.find(params[:id])
-  end
-
-  def set_protected
-    if current_user.id != @post.user_id
-      redirect_to 'public/422.html'
-    end
   end
 
   def get_profile

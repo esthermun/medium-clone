@@ -12,12 +12,15 @@
 	</div>
 	<div class="form-group">
 		<%= label_tag :description, "About: " %>
-		<%= f.text_area(:description, :class => "form-control", :placeholder => "Tell us about yourself...", :row => "8") %>
+		<%= f.text_area(:description, :class => "form-control", :placeholder => "Tell us about yourself...", :rows => "8") %>
 	</div>
 	<div class="form-group">
 		<%= label_tag :avatar, "Add your face: " %>
 		<%= f.file_field :avatar %>
 	</div>
-	<%= f.submit :class => "btn btn-info" %>
-
+	<div class="form-group">
+		<%=link_to 'Cancel', profile_path(current_user.id), :class => "btn btn-info" %>
+		<%= f.submit :class => "btn btn-info" %>
+	</div>
+	
 <% end %>

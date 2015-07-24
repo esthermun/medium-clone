@@ -6,23 +6,19 @@
 	<div class="col-xs-12 col-md-12">
 		<article class="post">
 			<% if @post.image.exists? %>
-				<%= image_tag @post.image.url,:class => "img-responsive" %>
+				<%= image_tag @post.image.url, :class => "img-responsive" %>
 			<% end %>
 
 			<h2>
 				<%= @post.title %>
 			</h2>
-			
-			<p>	
-				Posted <%= time_ago_in_words(@post.created_at)%> ago
-			</p>
 
 			<p>
 				Posted by: 
 				<span class="avatar-thumb">
-					<%= image_tag @profile.avatar.url(:thumb) %> 
+					<%= image_tag @profile.avatar.url(:thumb), :class => "avatar-thumb" %> 
 				</span>  
-				<span class="username"><%= @profile.username %></span>   
+				<span class="username"><a href="<%= profile_path(@post.user_id) %>"><%= @profile.username %></a></span>   
 				<span class="postDate"> <%= time_ago_in_words(@post.created_at)%> ago</span>
 			</p>
 
@@ -31,11 +27,12 @@
 			</div>
 		
 			<div class="userBtn">
-				<% if user_signed_in? && current_user.id === @post.user.id %>
-					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>	
+	
+				<% if user_signed_in? && current_user.id === @post.user_id %>
+					<%= link_to "Edit", edit_post_path, :class => "btn btn-info" %>		
 				<% end %>
-				
 			</div>
+
 		</article>
 
 	</div>

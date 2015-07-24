@@ -8,12 +8,16 @@
 			<article class="post">
 				
 				<a href="<%= post_path(post.id) %>">
-					<h3> <%= post.title %> </h3>
+					<h3> <%= post.title %> 
+						<span>
+							<% if user_signed_in? && current_user.id === post.user_id %>
+								<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>		
+							<% end %>
+						</span>
+					</h3>
 				</a>
 				
-				<p>	
-					<%= time_ago_in_words(post.created_at)%> ago
-				</p>
+				<p>	<%= time_ago_in_words(post.created_at)%> ago </p>
 
 				<p>
 					Posted by: 
@@ -31,17 +35,10 @@
 				<div class="content">
 					<%= truncate(post.content, :length => 80) %> 
 				</div>
-			
-				<div class="userBtn">
-					<% if user_signed_in? && current_user.id === post.user_id %>
-						<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
-					<% end %>
-				</div>
 
 			</article>
 			<hr>
-		<% end %> 
-
+		<% end %>
 	</div>
 </div>
 

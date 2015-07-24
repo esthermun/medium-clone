@@ -17,7 +17,9 @@ namespace :db do
 				profile.name = Faker::Name.name
 				profile.username = Faker::Internet.user_name
 				profile.description = Faker::Lorem.sentences(2)
-				profile.avatar_file_name = Faker::Avatar.image
+				profile.created_at = user.created_at
+				profile.avatar_file_name = 'bunny.jpeg'
+				profile.avatar_content_type = 'bunny/jpeg'
 				
 			end
 
@@ -26,7 +28,8 @@ namespace :db do
 				post.user_id = user.id
 				post.title = Faker::Lorem.sentences
 				post.content = Faker::Lorem.paragraphs (3)
-				post.image_file_name = Faker::Avatar.image
+				post.image_file_name = 'back.jpg'
+				post.image_content_type = 'back/jpg'
 				post.created_at = Faker::Time.between(2.years.ago, Time.now, :all)
 			end
 		end

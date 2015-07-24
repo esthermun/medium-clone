@@ -30,7 +30,7 @@
 											<li><%= link_to "Create Profile", new_profile_path %></li>
 										<% end %>
 
-										<li><a href="#">Setting</a></li>
+										<li><a href="#"><%= link_to "Setting", edit_user_registration_path %></a></li>
 										<li><%= link_to "log out", destroy_user_session_path, :method => :delete %></li>
 									</ul>
 								</li>

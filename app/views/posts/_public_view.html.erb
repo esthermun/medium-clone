@@ -1,0 +1,30 @@
+<!-- list view for other users -->
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<h3><%= @profile.username %>'s Posts </h3>
+		<% @posts.each do |post| %>
+			<article class="post">
+				<a href="<%= post_path(post.id) %>">
+					<h3> <%= post.title %> </h3>
+				</a>
+
+				<p>
+					Posted by: 
+					<span class="avatar-thumb">
+						<%= image_tag @profile.avatar.url(:thumb), :class => "avatar-thumb" %> 
+					</span>  
+					<span class="username"><%= @profile.username %></span>   
+					<span class="postDate"> <%= time_ago_in_words(post.created_at)%> ago</span>
+				</p>
+
+				<div class="content">
+					<%= truncate(post.content, :length => 80) %> 
+				</div>
+
+			</article>
+
+			<hr>
+			
+		<% end %> 
+	</div>
+</div>

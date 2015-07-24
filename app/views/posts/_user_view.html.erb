@@ -1,0 +1,39 @@
+<%# @posts.inspect %>
+<!-- table list for user - only seen by the user only for editing-->
+
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+
+		<h1>Manage My Posts</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Created at</th>
+					<th>Updated at</th>
+					<th>Comments</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @posts.each do |post| %>
+					<tr>
+						<td><%= post.title %></td>
+						<td><%= post.created_at %></td>
+						<td><%= post.updated_at %></td>
+						<td>comments count</td>
+						<td> <%= link_to "Show", post_path(post.id) %></td>
+						<td><%= link_to "Edit", edit_post_path(post.id) %></td> 
+						<td><%= link_to "Delete", post_path(post.id), method: :delete, data: { confirm: "Are you sure?"} %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+	
