@@ -1,10 +1,11 @@
+<!-- Shows all users -->
 <div class="row">
 	<div class="col-xs-12 col-md-12">
 		<h1>All Users</h1>
 		<% @profiles.each do |profile| %>
 			
 			<div class="media list-group">
-				<a href="#" class="list-group-item">
+				<a href="<%= profile_path(profile.user_id) %>" class="list-group-item">
 					<div class="media-left">
 						<%= image_tag profile.avatar.url(:thumb) %>
 					</div>

@@ -1,3 +1,4 @@
+<!-- shows all posts -->
 <div class="row">
 	<div class="col-xs-12 col-md-12">
 		<h1>Show all posts</h1>
@@ -21,11 +22,9 @@
 						<%= image_tag post.profile.avatar.url(:thumb), :class => "avatar-thumb" %> 
 							
 					</span>  
-					<span class="username">
-						
-						<%= post.profile.username %>
-						
-					</span>   
+						<a href="<%= profile_path(post.profile.user_id) %>">
+						<span class="username"> <%= post.profile.username %></span>	
+					</a>   
 					<span class="postDate"> <%= time_ago_in_words(post.created_at)%> ago</span>
 				</p>
 

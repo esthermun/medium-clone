@@ -1,0 +1,75 @@
+<%# @posts.inspect %>
+
+
+<!-- table list for user - only seen by the user only for editing-->
+<% if user_signed_in? && current_user.id === @profile.user_id %>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+
+			<h1>Manage My Posts</h1>
+			<table class="table table-striped">
+				<tr>
+					<th>Title</th>
+					<th>Created at</th>
+					<th>Updated at</th>
+					<th>Comments</th>
+					<th></th>
+				</tr>
+
+				<% @posts.each do |post| %>
+					<tr>
+						<td><a href="<%= post_path(post.id) %>"><%= post.title %> </a></td>
+						<td><%= post.created_at %></td>
+						<td><%= post.updated_at %></td>
+						<td>comments count</td>
+						<td><%= link_to "Edit", edit_post_path(post.id) %> delete</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+
+<% else %>
+
+<!-- list view for other users -->
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<% @posts.each do |post| %>
+				<article class="post">
+					<a href="<%= post_path(post.id) %>">
+						<h3> <%= post.title %> </h3>
+					</a>
+
+					<p>
+						Posted by: 
+						<span class="avatar-thumb">
+							<%= image_tag @profile.avatar.url(:thumb) %> 
+						</span>  
+						<span class="username"><%= @profile.username %></span>   
+						<span class="postDate"> <%= time_ago_in_words(post.created_at)%> ago</span>
+					</p>
+
+					<div class="content">
+						<%= truncate(post.content, :length => 80) %> 
+					</div>
+				
+					<div class="userBtn">
+						<% if user_signed_in? && current_user.id === post.user.id %>
+							<%= link_to "Edit", edit_post_path(post.id), :class => "btn btn-info" %>
+						<% end %>
+						
+					</div>
+
+				</article>
+
+				<hr>
+				
+			<% end %> 
+		</div>
+	</div>
+
+
+<% end %>
+
+
+	
