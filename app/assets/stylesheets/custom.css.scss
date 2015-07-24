@@ -4,3 +4,18 @@
 body {
 	padding-top:70px;
 }
+
+.post{
+	.username{
+		font-weight: bold;
+	}
+	.avatar-thumb{
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+	}
+	.postDate{
+		font-style: italic; 
+	}
+
+}

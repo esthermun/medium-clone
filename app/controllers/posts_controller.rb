@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 # to show all my posts 
   def user_posts
     @posts = current_user.posts
-    # get_profile
+    @profile = current_user.profile 
   end
 
 # show one post
@@ -55,6 +55,11 @@ class PostsController < ApplicationController
   def get_profile
     @id = @post.user_id
     @profile = Profile.find_by_user_id(@id)
+  end
+
+  def match_profile
+    @posts = Post.all
+    
   end
 
   def post_params

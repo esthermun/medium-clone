@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
 
   def show
   	@profile = Profile.find(params[:id])
+    @posts = @profile.posts.all
   end
 
   def edit
