@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def create
   	@profile = Profile.new(profile_params)
-  	@profile.user_id = current_user.id
+    @profile.user_id = current_user.id
   	if @profile.save
       flash[:notice] = "Profile successfully created."
   		redirect_to @profile
@@ -23,10 +23,16 @@ class ProfilesController < ApplicationController
 
   def edit
   	@profile = Profile.find(params[:id])
+    if current_user.id != profile.user_id
+      redirect_to '/404'
+    end
+    
   end
 
   def update
   	@profile = Profile.find(params[:id])
+    # @id = current_user.id
+    # @profile = Profile.find_by_user_id(@id)
   	if @profile.update(profile_params)
   		flash[:notice] = "Profile successfully updated."
   		redirect_to @profile
