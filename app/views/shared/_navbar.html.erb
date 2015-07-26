@@ -1,65 +1,62 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-			<!-- MENU - FIRST ROW--> 
-				<div class="row">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-menu" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>		
-						</button>
-						<a href="/" class="navbar-brand">Medium Clone</a>
-					</div>
-
-					<div class="collapse navbar-collapse nav-menu" id="nav-mainMenu">
-						
-						<ul class="nav navbar-nav navbar-right">
-							
-							<% if user_signed_in? %>
-							
-								<li><a href="<%= new_post_path %>"><span class="glyphicon glyphicon-pencil"></span> Write a Post</a></li>
-								<li class="dropdown">
-									<a href = "#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.email %> <span class="caret"></span></a>
-									<ul class="dropdown-menu">
-
-										<% if current_user.profile.present? %>
-											<li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
-										<% else %>	
-											<li><%= link_to "Create Profile", new_profile_path %></li>
-										<% end %>
-
-										<li><a href="#"><%= link_to "Setting", edit_user_registration_path %></a></li>
-										<li><%= link_to "log out", destroy_user_session_path, :method => :delete %></li>
-									</ul>
-								</li>
-							<% else %>
-								<li><%= link_to "log in", new_user_session_path %></li>
-								<li><%= link_to "sign up", new_user_registration_path %></li>
-							<% end %>
-						</ul>
-					</div>
-				</div>
-
-			<!-- MENU - SECOND ROW -->	
-				<div class="row">
-					<div class="collapse navbar-collapse nav-menu" id="nav-subMenu">
-						<ul class="nav navbar-nav navbar-left">
-							<li><%= link_to "All Posts", posts_path %></li>
-							<li><%= link_to "All Users", profiles_path %></li>
-						</ul>
-						<!-- SEARCH BAR -->
-						<form class="navbar-form navbar-right" role="search">
-							<div class="form-group input-group">
-								<input type="text" class="form-control" placeholder="Search for...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-								</span>
-							</div>
-						</form>	
-					</div>
-				</div>
-
+	<div class="container">
+	<!-- MENU - FIRST ROW--> 
+		<div class="row">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-menu" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>		
+				</button>
+				<a href="/" class="navbar-brand">Medium Clone</a>
 			</div>
-		</nav>
+
+			<div class="collapse navbar-collapse nav-menu" id="nav-mainMenu">
+
+				<ul class="nav navbar-nav navbar-left">
+					<li><%= link_to "All Posts", posts_path %></li>
+					<li><%= link_to "All Users", profiles_path %></li>
+				</ul>
+
+				<!-- User Menu -->
+				<ul class="nav navbar-nav navbar-right">
+					
+					<% if user_signed_in? %>
+					
+						<li><a href="<%= new_post_path %>"><span class="glyphicon glyphicon-pencil"></span> Write a Post</a></li>
+						<li class="dropdown">
+							<a href = "#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.email %> <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+
+								<% if current_user.profile.present? %>
+									<li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
+								<% else %>	
+									<li><%= link_to "Create Profile", new_profile_path %></li>
+								<% end %>
+
+								<li><%= link_to "Setting", edit_user_registration_path %></li>
+								<li><%= link_to "log out", destroy_user_session_path, :method => :delete %></li>
+							</ul>
+						</li>
+					<% else %>
+						<li><%= link_to "log in", new_user_session_path %></li>
+						<li><%= link_to "sign up", new_user_registration_path %></li>
+					<% end %>
+				</ul>
+
+				<!-- SEARCH BAR -->
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group input-group">
+						<input type="text" class="form-control" placeholder="Search for...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
+	
+			</div>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="col-xs-12 col-md-8">
+		<div class="alerts">
+			<% if flash[:notice] %>
+				<p class="text-success bg-success"><%= notice %></p>
+			<% elsif flash[:alert] %>
+				<p class="text-danger bg-danger"><%= alert %></p>
+			<% end %>	
+		</div>
+	</div>
+</div>	

@@ -6,10 +6,14 @@ class Profile < ActiveRecord::Base
   	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/ 
   
   	validates :username, presence: true,
-  					     length: {minimum: 1},
-  					     uniqueness: true
+  					             length: {minimum: 4, maximum: 20},
+  					             uniqueness: true
   
   	validates :name, presence: true,
-  					 length: {minimum: 1},
-  					 uniqueness: true
+  					         length: {minimum: 1},
+  					         uniqueness: true
+
+    validates :description, presence: true,
+                            length: {minimum: 5, maximum: 500}
+
 end
