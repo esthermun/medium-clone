@@ -12,7 +12,7 @@
 					
 					<div class="media-body">
 						<h4 class="media-heading">
-							<%= profile.name %> <span>aka <%= profile.username %></span>
+							<%= profile.username %>
 						</h4>
 						<p>Member since <%= time_ago_in_words(profile.created_at) %> </p>
 						<p><%= truncate(profile.description, :length => 50) %></p>

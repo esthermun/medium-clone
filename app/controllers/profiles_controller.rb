@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-  	@profiles = Profile.all
+  	@profiles = Profile.all.order(username: :asc)
   end
 
   private
