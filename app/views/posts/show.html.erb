@@ -23,7 +23,7 @@
 			</p>
 
 			<div class="content">
-				<%= @post.content %> 
+				<%= sanitize(@post.content) %> 
 			</div>
 		
 			<div class="userBtn">

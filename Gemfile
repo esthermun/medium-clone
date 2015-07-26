@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-#text editor tool
-gem 'ckeditor', :git => "https://github.com/galetahub/ckeditor.git"
-#fake users creator
+gem 'ckeditor', github: 'galetahub/ckeditor' 
+
 gem 'faker'
 gem 'populator'
 #attachment

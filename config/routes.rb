@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :posts
+
+  mount Ckeditor::Engine => '/ckeditor'
   
-  #get 'my_posts' => 'posts#user_posts', as: :my_posts
+  get 'my_posts' => 'posts#user_posts', as: :my_posts
 
   devise_for :users
-  mount Ckeditor::Engine => '/ckeditor'
 
    # get 'posts/new'
 
