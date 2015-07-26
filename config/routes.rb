@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  
   root to: 'home#index'
 
   resources :profiles
 
   resources :posts
   
-  get 'my_posts' => 'posts#user_posts', as: :my_posts
+  #get 'my_posts' => 'posts#user_posts', as: :my_posts
 
   devise_for :users
+  mount Ckeditor::Engine => '/ckeditor'
 
    # get 'posts/new'
 

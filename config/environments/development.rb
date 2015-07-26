@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
   # Paperclip otions
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
