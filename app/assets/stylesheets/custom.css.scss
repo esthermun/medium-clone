@@ -4,7 +4,6 @@
 body {
 	padding-top:70px;
 }
-
 .post{
 	.username{
 		font-weight: bold;
@@ -27,8 +26,6 @@ body {
 		
 	}
 }
-
-
 .footer{
 	margin-bottom: 0px;
 	height: 80px;
@@ -38,5 +35,11 @@ body {
 	font-size: 16px;
 	.bg-success, .bg-danger{
 		padding: 10px 20px;
+	}
+}
+form{
+	.error-box{
+		padding: 10px 25px;
+		margin-bottom: 10px;
 	}
 }
