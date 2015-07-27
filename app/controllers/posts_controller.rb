@@ -27,7 +27,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @search = Post.search do
+      fulltext params[:search]
+    end
+    @posts = @search.results
+    # @posts = Post.all.order(created_at: :desc)
+
+
     # if params[:search]
     #   flash[:notice] = "Your search results"
     #   @posts = Post.search(params[:search]).order(created_at: :desc).limit(10)
