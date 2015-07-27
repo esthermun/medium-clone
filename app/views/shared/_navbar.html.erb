@@ -47,14 +47,18 @@
 				</ul>
 
 				<!-- SEARCH BAR -->
-				<form class="navbar-form navbar-right" role="search">
+				<!-- <form class="navbar-form navbar-right" role="search"> -->
+				<%= form_tag(posts_path, :method => "get", :class => "navbar-form navbar-right", :id => "search-form") do %>
 					<div class="form-group input-group">
-						<input type="text" class="form-control" placeholder="Search for...">
+						<!-- <input type="text" class="form-control" placeholder="Search for..."> -->
+
+						<%= text_field_tag :search, params[:search], :type => "text", :class="form-control", :placeholder => "Search for..." %>
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+							<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 						</span>
 					</div>
-				</form>
+				<% end %>	
+				<!-- </form> -->
 	
 			</div>
 		</div>
