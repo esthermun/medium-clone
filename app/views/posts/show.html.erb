@@ -35,4 +35,10 @@
 	</div>
 </div>
 
+<hr> 
+
 <%= render "/comments/form" %>
+
+<% if @post.comments.exists? %>
+	<%= render "/comments/show" %>
+<% end %>

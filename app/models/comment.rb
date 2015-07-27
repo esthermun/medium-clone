@@ -4,5 +4,5 @@ class Comment < ActiveRecord::Base
   has_one :profile, :through => :user
 
   validates :content, presence: true, 
-  					  length: {minimum: 1}
+  					  length: {minimum: 2}
 end
