@@ -4,8 +4,8 @@
 			<article class="post comment">
 				<p class="commenter">
 					<span class="avatar-thumb">
-						<%= image_tag current_user.profile.avatar.url(:thumb), :class => "avatar-thumb" %> </span>
-						<span class="username"><a href="<%= profile_path(current_user.id) %>"><%= current_user.profile.username %></a></span>   
+						<%= image_tag @profile.avatar.url(:thumb), :class => "avatar-thumb" %> </span>
+						<span class="username"><a href="<%= profile_path(@profile.id) %>"><%= @profile.username %></a></span>   
 					<!-- <span class="postDate"> commented <%# time_ago_in_words(comment.created_at) %> ago</span> -->
 				</p>
 				<p> <%= comment.content %> </p>

@@ -8,10 +8,16 @@ class CommentsController < ApplicationController
 		unless user_signed_in? && current_user.id != @post.user_id
 			redirect_to '/422'
 		else 
-			@comment = @post.comments.create(comment_params).order(created_at: :desc)
+			@comment = @post.comments.create(comment_params)
 			@comment.user_id = current_user.id
-			@comment.save
-			redirect_to @post
+			@profile = Profile.find_by_user_id(@comment.user_id)
+			if @comment.save
+				flash[:notice] = "Comment successfully posted."
+				redirect_to @post
+			else 
+				flash[:alert] = "Comment not posted. Try again."
+				redirect_to @post
+			end
 		end	
 	end
 
