@@ -27,12 +27,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    
     if params[:search]
-      flash[:notice] = "Your search results"
-      @posts = Post.search(params[:search]).order(created_at: :desc).limit(10)
+      @posts = Post.search(params[:search]).order(created_at: :desc)
+      flash[:notice] = "#{@posts.count} search results found."
     else
-      flash[:notice] = "No search results found"
+      @posts = Post.all.order(created_at: :desc)
     end
   end
    

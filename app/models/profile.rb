@@ -14,6 +14,8 @@ class Profile < ActiveRecord::Base
   					         uniqueness: true
 
     validates :description, presence: true,
-                            length: {minimum: 5, maximum: 500}
+                            length: {minimum: 5}
+
+ 
 
 end

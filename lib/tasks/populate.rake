@@ -6,7 +6,7 @@ namespace :db do
 
 		[User, Profile, Post].each(&:delete_all)
 
-		User.populate 10 do |user|
+		User.populate 15 do |user|
 			user.email = Faker::Internet.email
 			user.encrypted_password = Faker::Internet.password
 			user.sign_in_count = 0
@@ -16,7 +16,7 @@ namespace :db do
 				profile.user_id = user.id
 				profile.name = Faker::Name.name
 				profile.username = Faker::Internet.user_name
-				profile.description = Faker::Lorem.sentences(2)
+				profile.description = Faker::Lorem.paragraph(5)
 				profile.created_at = user.created_at
 				profile.avatar_file_name = 'bunny.jpeg'
 				profile.avatar_content_type = 'bunny/jpeg'
@@ -27,7 +27,7 @@ namespace :db do
 			Post.populate 5 do |post|
 				post.user_id = user.id
 				post.title = Faker::Lorem.sentences
-				post.content = Faker::Lorem.paragraphs(3)
+				post.content = Faker::Lorem.paragraphs(7)
 				post.image_file_name = 'back.jpg'
 				post.image_content_type = 'back/jpg'
 				post.created_at = Faker::Time.between(2.years.ago, Time.now, :all)

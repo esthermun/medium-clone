@@ -41,6 +41,7 @@ class ProfilesController < ApplicationController
 
   def index
   	@profiles = Profile.all.order(username: :asc)
+  
   end
 
   private

@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 	validates :content, presence: true 
 
 	def self.search(query)
-		where("title like ?", "%#{query}%") || where("content like ?", "%#{query}%")
+			where("title like ?", "%#{query}%")
+		
 	end
 end
