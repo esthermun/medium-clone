@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  resources :comments
-  
   resources :profiles
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   
   get 'my_posts' => 'posts#user_posts', as: :my_posts
 
