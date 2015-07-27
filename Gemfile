@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem 'sunspot_rails'
 gem 'faker'
 gem 'populator'
 #attachment
